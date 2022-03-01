@@ -1,13 +1,9 @@
 import React from "react";
 
-import { auth } from "../../firebase/firebase";
-
 import { Box, Typography, Avatar } from "@mui/material";
 
 export default function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
-
-  const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
+  const { text, photoURL } = props.message;
 
   return (
     <Box
@@ -17,7 +13,7 @@ export default function ChatMessage(props) {
         flexDirection: "column",
       }}
     >
-      <div className={`message ${messageClass}`}>
+      <div>
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <img
             alt="User Avatar"
